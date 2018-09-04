@@ -37,6 +37,7 @@ or implied, of Rafael Muñoz Salinas.
 #include <aruco/aruco.h>
 #include <aruco/cvdrawingutils.h>
 
+#include <opencv2/core/core.hpp>
 #include <ros/ros.h>
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
@@ -259,6 +260,7 @@ public:
             //Publish rviz marker representing the ArUco marker patch
             visualization_msgs::Marker visMarker;
             visMarker.header = transformMsg.header;
+            visMarker.pose = poseMsg.pose;
             visMarker.id = 1;
             visMarker.type   = visualization_msgs::Marker::CUBE;
             visMarker.action = visualization_msgs::Marker::ADD;
